@@ -1,0 +1,46 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div id="chatbox">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">Chatbox</div>
+                  <div class="card-body" class="chat" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+                    <dl id="responseList" *ngFor="let previous of history" class="row-striped">
+                        <span *ngFor="let res of previous">
+                          <strong>{{ res.owner }}: </strong>
+                          <img *ngIf="res.response_type==='image'" src="{{ res.source }}"/>
+                          <span *ngIf="res.response_type==='text'">{{ res.text }}</span>
+                          <span *ngIf="res.response_type==='option'">{{ res.title }}</span>
+                          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            &nbsp;&nbsp;<button class="btn btn-info" (click)="onSubmit(option.value.input.text)"
+                                                *ngFor="let option of res.options"
+                                                value="{{option.value.input.text}}">{{ option.label }}</button>
+                          </div>
+                        </span>
+                    </dl>
+                    <hr/>
+                    <div class='input-group'>
+                      <input type='text' name='message' #query1 class="form-control"
+                             placeholder="Write to chat..."
+                             (keyup.enter)="onSubmit(query1.value);query1.value = ''">
+                      <div class='input-group-append'>
+                        <button class='btn btn-primary' (click)="onSubmit(query1.value);query1.value = ''">Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

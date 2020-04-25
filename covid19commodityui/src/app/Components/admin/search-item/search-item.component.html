@@ -1,0 +1,48 @@
+<app-navigation></app-navigation>
+<div style="margin-top:30px;" class="container">
+    <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Search Post</h3>
+          <div class="pull-right">
+            <span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+            </span>
+          </div>
+        </div>
+        <div class="panel-body">
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for ">
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+                <th>Id</th>
+                <th>Vendor Name</th>
+                <th>Description</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th>FreeBie</th>
+            </tr>
+          </thead>
+          <tbody  *ngIf="pageClient?.content">
+            <tr *ngFor="let client of pageClient.content | filter:searchText">
+                <td >{{client.itemid}}</td>
+                <td>{{client.itemname}}</td>
+                <td>{{client.description}}</td>
+                <td>{{client.address}}</td>
+                <td>{{client.emailaddress}}</td>
+                <td>{{client.phonenumber}}</td>
+                <td>{{client.freebie}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    </div>
+    </div>
+    <nav aria-label="...">
+    <ul style="margin-left: 180px;margin-top:-10px;" class="pagination"  *ngIf="pageClient?.content" >
+    <li *ngFor="let page of ' '.repeat(pageClient.totalPages).split(''), let i = index " (click)="onSelect(i)" [class.active]="i === selectedPage" class="page-item"><a class=" nav-link" routerLink="/admin/search">{{i}}</a></li>
+    </ul>
+    </nav>

@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.covid19shop.service.WatsonAssistantConfig",
+      "name": "ibm.watson.assistant",
+      "type": "com.covid19shop.service.WatsonAssistantConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.covid19shop.service.WatsonAssistantConfig",
+      "name": "ibm.watson.assistant.apikey",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.covid19shop.service.WatsonAssistantConfig",
+      "name": "ibm.watson.assistant.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.covid19shop.service.WatsonAssistantConfig",
+      "name": "ibm.watson.assistant.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.covid19shop.service.WatsonAssistantConfig",
+      "name": "ibm.watson.assistant.version-date",
+      "type": "java.lang.String"
+    }
+  ]
+}

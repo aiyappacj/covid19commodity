@@ -1,0 +1,76 @@
+<app-navigation></app-navigation>
+<div class="container">
+        <div class="row">
+                <div class="col-12">
+                        <button class="mybtn btn btn-secondary" (click)="show()" *ngIf="!showAdd">Click to Add</button>
+                        <button class="mybtn btn btn-secondary" (click)="hide()" *ngIf="showAdd">Click to hide</button>
+                </div>
+        </div>
+        <form class="form-horizontal shadow p-3 mb-5 bg-white rounded " #f="ngForm" (ngSubmit)="f.form.valid && addProd(itemname,emailaddress,phonenumber,freebie,image,description,address)"
+                *ngIf="showAdd">
+                <div class="row">
+                        <label for="name" >
+                                <span>Name</span>
+                                <input type="text" class="form-control" id="name" placeholder="Vendor/Individual" #itemname
+                                                                            ngModel name="itemname">
+                              </label>
+                              <label for="emailid" >
+                                <span>Email</span>
+                                <input type="text" id="emailid" class="form-control" placeholder="Email Address" name="emailaddress"
+                                                                            #emailaddress ngModel rows="5">
+                              </label>
+                              <label for="phoneno">
+                                <span>Phone Number</span>
+                                <input type="text" class="form-control" id="phoneno" placeholder="Phone Number" name="phonenumber" #phonenumber
+                                                                            ngModel>
+                              </label>
+                              
+                              
+                </div>
+                <div class="row">            
+                        
+                              <label for="freebie">
+                                <span>FreeBie</span>
+                                <input type="text" class="form-control" id="freebie" placeholder="FreeBie" name="freebie" #freebie
+                                                                            ngModel>
+                              </label>
+                              <label for="upload">
+                                <span>Upload Item Picture</span>
+                                <input type="file" id="upload" class="form-control" placeholder="Item Picture" #image
+                                                                            accept="image/*" name="image"
+                                                                            (change)="handleFileInput($event.target.files)">
+                              </label>
+                              
+                        
+                </div>
+                
+                <div class="row">
+                              <label for="description">
+                                <span>Description</span>
+                                <textarea type="text" class="form-control" id="description" placeholder="description" name="description"
+                                                                            #description ngModel rows="4" cols="3"></textarea>
+                              </label>
+                              
+                              <label for="homeaddress">
+                                <span>Home Address</span>
+                                <textarea type="text" id="homeaddress" class="form-control" placeholder="Home Address" #address
+                                                                            ngModel name="address" rows="4" cols="3"></textarea>
+                              </label>
+                              
+                </div>
+                <div class="col-6">
+                        <h4 class="text-center">Image preview</h4>
+                        <img [src]="imageUrl" style="width:100px;height: 100px;">
+
+                </div>
+                
+                <div class="row">
+                        <div class="col-6">
+                                <input type="submit" class=" btn btn-primary" value="Add">
+                        </div>
+                </div>
+        </form>
+                  <hr>
+        
+       
+</div>

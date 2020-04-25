@@ -1,0 +1,7 @@
+applications:
+- memory: 256M
+  instances: 1
+  name: covid19angularUI
+  disk_quota: 1024M
+  buildpack: staticfile_buildpack
+  path: www
