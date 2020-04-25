@@ -35,7 +35,7 @@ how much is the cost , if its not freebie ?
   * H2 Database
   * JWT Token (Session management)
 
-#### Web services project can be found in (https://github.com/cyela/Springboot-Web-Services)
+
 
 #### Application Modules
 * Login 
